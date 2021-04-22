@@ -60,6 +60,14 @@ inherits zabbix_agent2::params
             refreshonly => true,
             command     => 'yum makecache -y -q',
         }
+        exec { 'daemon-reload':
+            path        => '/usr/bin',
+            user        => 'root',
+            logoutput   => true,
+            refreshonly => true,
+            command     => 'systemctl daemon-reload',
+        }
+
         if ($zabbix_agent2::manage_package) and ($zabbix_agent2::manage_repo) {
           package { $zabbix_agent2::package_name:
             ensure  => $zabbix_agent2::package_ensure,
@@ -70,6 +78,23 @@ inherits zabbix_agent2::params
           package { $zabbix_agent2::package_name:
             ensure  => $zabbix_agent2::package_ensure,
             require => Exec['yum makecache']
+          }
+        }
+        if ($zabbix_agent2::service_runasroot) and ($zabbix_agent2::service_name) {
+          file { "/etc/systemd/system/${zabbix_agent2::service_name}.service.d":
+            ensure => directory,
+            owner  => 0,
+            group  => 0,
+            mode   => '0755',
+          }
+          file { "/etc/systemd/system/${zabbix_agent2::service_name}.service.d/override.conf":
+            ensure  => file,
+            owner   => 0,
+            group   => 0,
+            mode    => '0644',
+            source  => 'puppet:///modules/zabbix_agent2/override.conf',
+            notify  => [Exec['daemon-reload'],Service["${$zabbix_agent2::service_name}"]],
+            require => File["/etc/systemd/system/${zabbix_agent2::service_name}.service.d"]
           }
         }
       }

@@ -27,7 +27,7 @@ case $facts['os']['family'] {
       mode    => '0644',
       content => epp('zabbix_agent2/zabbix_agent2.conf.epp'),
       require => File["${zabbix_agent2::config_dir}"],
-      notify  => Service['zabbix_agent2']
+      notify  => Service["${$zabbix_agent2::service_name}"]
     }
     }
   'Windows'  : {

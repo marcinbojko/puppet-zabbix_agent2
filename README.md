@@ -107,6 +107,7 @@ use of the module.
 |$service_manage|Boolean|shoudl module manage the service|true|
 |$service_hasstatus|Optional[Boolean]|if service has status||
 |$service_hasrestart|Optional[Boolean]|if service can be restarted||
+|$service_runasroot|Optional[Boolean]|if module should create override file for systemd|false|
 
 ### Extra class parameters
 

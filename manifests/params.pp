@@ -12,6 +12,7 @@ $manage_package           = true
 $package_ensure           = 'present'
 $zabbix_version           = '5.2'
 $uninstall_zabbix         = false
+$service_runasroot        = false
 # settings for config class
 $log_file_size            = 1
 $server                   = undef

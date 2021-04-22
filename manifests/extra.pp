@@ -14,7 +14,7 @@ inherits zabbix_agent2::params  {
             context => "/files/etc/group/docker",
             changes => ["set /files/etc/group/docker/user[last()+1] ${zabbix_agent2::plugin_docker_user_name}"],
             onlyif  => ["values /files/etc/group/docker/user not_include ${zabbix_agent2::plugin_docker_user_name}"],
-            notify  => Service['zabbix_agent2'],
+            notify  => Service["${$zabbix_agent2::service_name}"],
           }
       }
       default: { }

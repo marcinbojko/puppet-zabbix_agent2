@@ -15,6 +15,7 @@ class zabbix_agent2 (
   Optional[Boolean]                         $uninstall_zabbix         = $zabbix_agent2::params::uninstall_zabbix,
   Optional[String]                          $uninstall_zabbix_package = $zabbix_agent2::params::uninstall_zabbix_package,
   Optional[String]                          $source                   = $zabbix_agent2::params::source,
+  Optional[Boolean]                         $service_runasroot        = $zabbix_agent2::params::service_runasroot,
   # settings for config class
   Stdlib::Absolutepath                      $config_dir               = $zabbix_agent2::params::config_dir,
   String                                    $config_name              = $zabbix_agent2::params::config_name,
