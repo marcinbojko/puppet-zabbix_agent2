@@ -11,8 +11,9 @@ $manage_repo              = true
 $manage_package           = true
 $package_ensure           = 'present'
 $zabbix_version           = '5.2'
+$uninstall_zabbix         = false
 # settings for config class
-$log_file_size            = 100
+$log_file_size            = 1
 $server                   = undef
 $server_active            = undef
 $hostname                 = undef
@@ -42,7 +43,6 @@ $unsafe_user_parameter    = undef
 $user_parameter_dir       = undef
 $user_parameter_dir_create= true
 $plugins                  = undef
-$uninstall_zabbix         = false
 
 # settings for service class
 $service_ensure           = 'running'

@@ -24,12 +24,11 @@ Facter.add('zabbix_agent2_version') do
         success = $CHILD_STATUS.to_i
         if success
           output.each_line do |line|
-            key, value = line.split('|', 2)
+            _key, value = line.split('|', 2)
             value = value.to_s.strip
-            #key = key.to_s.strip
             zabbix_agent2_version = value
           end
-       end
+        end
       else
         zabbix_agent2_version
       end

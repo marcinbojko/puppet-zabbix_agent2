@@ -74,17 +74,22 @@ inherits zabbix_agent2::params
         }
       }
     'Windows'  : {
-          if ($zabbix_agent2::manage_package) {
-          package { $zabbix_agent2::package_name:
-            ensure   => $zabbix_agent2::package_ensure,
-            source   => $zabbix_agent2::source,
-            provider => 'chocolatey',
+          if ($zabbix_agent2::uninstall_zabbix) {
+            package { $zabbix_agent2::uninstall_zabbix_package:
+              ensure   => absent,
+              provider => 'chocolatey',
+            }
           }
-        }
+          if ($zabbix_agent2::manage_package) {
+            package { $zabbix_agent2::package_name:
+              ensure   => $zabbix_agent2::package_ensure,
+              source   => $zabbix_agent2::source,
+              provider => 'chocolatey',
+            }
+          }
     }
     default: {
       fail($zabbix_agent2::fail_message)
     }
   }
-
 }
