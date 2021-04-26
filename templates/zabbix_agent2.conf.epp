@@ -180,7 +180,7 @@ ServerActive=127.0.0.1
 <% if ($zabbix_agent2::hostname)  {-%>
 Hostname=<%= $zabbix_agent2::hostname -%>
 <% } else { -%>
-Hostname=<%= $facts[fqdn] -%>
+Hostname=<%= downcase($facts[fqdn]) -%>
 <% } %>
 
 ### Option: HostnameItem
@@ -193,8 +193,6 @@ Hostname=<%= $facts[fqdn] -%>
 
 <% if ($zabbix_agent2::hostname_item)  {-%>
 HostnameItem=<%= $zabbix_agent2::hostname_item -%>
-<% } else { -%>
-HostnameItem=system.hostname
 <% } %>
 
 ### Option: HostMetadata
@@ -241,7 +239,7 @@ HostMetadataItem=<%= $zabbix_agent2::hostname_metadata_item -%>
 # HostInterface=
 
 <% if ($zabbix_agent2::host_interface) {-%>
-HostInterface=<%= $zabbix_agent2::host_interface -%>
+HostInterface=<%= downcase($zabbix_agent2::host_interface) -%>
 <% } else { -%>
 <% } %>
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.1.4 - 2021-04-27
+
+* removed defaults from zabbix_config template for `HostnameItem`
+* introduced downcase for `Hostname` and `HostInterface`
+* added `chocolatey` as required provider
+* fixed tests
+
 ## Release 0.1.3 - 2021-04-22
 
 * added `service_runasroot` parameter for zabbix instances required to run with root privileges
