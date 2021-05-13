@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.1.5 - 2021-05-06
+
+* introduced downcase for `HostInterfaceItem`
+* added multiple gpgkeys for zabbix yum repository
+
 ## Release 0.1.4 - 2021-04-27
 
 * removed defaults from zabbix_config template for `HostnameItem`

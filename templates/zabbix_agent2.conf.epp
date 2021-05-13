@@ -255,7 +255,7 @@ HostInterface=<%= downcase($zabbix_agent2::host_interface) -%>
 # HostInterfaceItem=
 
 <% if ($zabbix_agent2::host_interface_item) {-%>
-HostInterfaceItem=<%= $zabbix_agent2::host_interface_item -%>
+HostInterfaceItem=<%= downcase($zabbix_agent2::host_interface_item) -%>
 <% } else { -%>
 <% } -%>
 

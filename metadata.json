@@ -1,6 +1,6 @@
 {
   "name": "mbojko-zabbix_agent2",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Marcin Bojko",
   "summary": "summary",
   "license": "Apache-2.0",
@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 6.0.0 < 7.0.0"
+      "version_requirement": ">= 6.0.0 < 8.0.0"
     },
     {
       "name": "puppetlabs/augeas_core",
@@ -60,7 +60,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.0.0 < 7.0.0"
+      "version_requirement": ">= 6.0.0 < 8.0.0"
     }
   ],
   "pdk-version": "2.1.0",

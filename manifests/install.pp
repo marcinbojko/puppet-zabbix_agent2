@@ -22,28 +22,28 @@ inherits zabbix_agent2::params
               baseurl  => "https://repo.zabbix.com/zabbix/${zabbix_agent2::zabbix_version}/rhel/${facts['os']['release']['major']}/\$basearch/",
               gpgcheck => '1',
               enabled  => '1',
-              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
+              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX-A14FE591',
             }
             yumrepo { 'zabbix-nonsupported':
               descr    => "Zabbix Official Repository non-supported - \$basearch/",
               baseurl  => "https://repo.zabbix.com/non-supported/rhel/${facts['os']['release']['major']}/\$basearch/",
               gpgcheck => '1',
               enabled  => '0',
-              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
+              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX-A14FE591',
             }
             yumrepo { 'zabbix-frontend':
               descr    => "Zabbix Official Repository frontend - \$basearch",
               baseurl  => "https://repo.zabbix.com/zabbix/${zabbix_agent2::zabbix_version}/rhel/${facts['os']['release']['major']}/\$basearch/frontend",
               gpgcheck => '1',
               enabled  => '0',
-              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
+              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX-A14FE591',
             }
             yumrepo { 'zabbix-debuginfo':
               descr    => "Zabbix Official Repository debuginfo - \$basearch",
               baseurl  => "https://repo.zabbix.com/zabbix/${zabbix_agent2::zabbix_version}/rhel/${facts['os']['release']['major']}/\$basearch/debuginfo",
               gpgcheck => '1',
               enabled  => '0',
-              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
+              gpgkey   => 'https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX https://repo.zabbix.com/RPM-GPG-KEY-ZABBIX-A14FE591',
             }
         }
         exec { 'yum clean all':
