@@ -1,5 +1,7 @@
 # zabbix_agent2
 
+This repository is DEPRECATED and available in READ ONLY mode.
+
 Puppet module for managing `Zabbix Agent 2` installation and configuration.
 
 ## Table of Contents
